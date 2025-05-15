@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="icon" href="/static/img/download.ico">
+    <link rel="stylesheet" href="static/styles.css">
+    <script>
+        // JavaScript to cycle through images with a delay
+        document.addEventListener("DOMContentLoaded", function () {
+            const images = document.querySelectorAll(".image-container img");
+            const descriptions = document.querySelectorAll(".description p");
+            let index = 0;
+
+            function showNextImage() {
+                // Hide all images and descriptions
+                images.forEach(img => img.style.display = "none");
+                descriptions.forEach(desc => desc.style.display = "none");
+
+                // Show current image and description
+                images[index].style.display = "block";
+                descriptions[index].style.display = "block";
+
+                // Move to next image
+                index = (index + 1) % images.length;
+            }
+
+            // Initially show the first image
+            showNextImage();
+            setInterval(showNextImage, 3000); // Change image every 3 seconds
+        });
+    </script>
+</head>
+<style>
+    /* Global Style */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #87CEEB, #B0E0E6); /* Sky blue gradient */
+        text-align: center;
+    }
+
+    /* Center the content */
+    .container {
+        width: 50%;
+        margin: 50px auto;
+        padding: 20px;
+        background: white; /* White background for the container */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    /* Headings */
+    h1, h3 {
+        color: #333333;
+        margin-bottom: 20px;
+    }
+
+    table {
+        width: 50%;
+        margin: 20px auto; /* Centers the table */
+        border-collapse: collapse;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        border: 5px solid transparent;
+        background-clip: padding-box;
+        position: relative;
+    }
+
+    table::before {
+        content: "";
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        z-index: -1;
+        border-radius: 10px;
+        background: linear-gradient(135deg, #87CEEB, #B0E0E6); /* Sky blue gradient */
+    }
+
+    th, td {
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        padding: 10px;
+        text-align: center;
+    }
+
+    th {
+        background: #4682B4; /* Steel blue for table header */
+        color: white;
+        font-weight: bold;
+    }
+
+    /* Image Card (Fixed Size) */
+    .card {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+        width: 130%;
+        max-width: 350px; /* Fixed width */
+        height: 400px; /* Fixed height */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; /* Center contents */
+        overflow: hidden;
+    }
+
+    /* Image Container */
+    .image-container {
+        width: 100%;
+        max-width: 300px;
+        height: 250px; /* Fixed height for image */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .image-container img {
+        width: 100%;
+        max-width: 300px;
+        height: 100%; /* Maintain fixed height */
+        object-fit: contain;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        display: none; /* Initially hidden */
+    }
+
+    /* Description */
+    .description {
+        height: 50px; /* Fixed height for description */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .description p {
+        font-size: 18px;
+        margin-top: 10px;
+        color: #333; /* Darker text color for better readability */
+        display: none;
+        font-weight: bold;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        text-align: center;
+    }
+
+    /* Button */
+    button {
+        background-color: #4682B4; /* Steel blue */
+        color: white;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+        margin-top: 20px;
+    }
+
+    button:hover {
+        background-color: #4169E1; /* Royal blue on hover */
+    }
+
+    /* Link button alignment */
+    a {
+        text-decoration: none;
+    }
+</style>
+<body>
+    <div class="container">
+        <h1>Thyroid Prediction</h1>
+        <div class="form-container">
+            {% if predicted_class == "normal" %}
+                <h3>{{ predicted_class }}</h3>
+                <p>Confidence: {{ confidence }}%</p>
+            {% elif predicted_class == "abnormal" %}
+                <h3>{{ predicted_class }}</h3>
+                <p>Confidence: {{ confidence }}%</p>
+                <img src="data:image/png;base64,{{ img_base64 }}" alt="Prediction Confidence">
+                <center>
+                    <h1>DOCTOR & TREATMENT RECOMMENDATION</h1>
+                </center>
+                <!-- Single Fixed-Size Card for Images -->
+                <center>
+                    <div class="card">
+                        <div class="image-container">
+                            <img src="/static/img/a.jpg" alt="Healthy">
+                            <img src="/static/img/modi.webp" alt="Healthy Heart">
+                            <img src="/static/img/mithal.jpg" alt="Mild Risk">
+                            <img src="/static/img/sushil.jpg" alt="Moderate Risk">
+                        </div>
+                        <div class="description">
+                            <p>Dr. Vel E. Kahn - Endocrinologist specializing in thyroid disorders.</p>
+                            <p>Dr. K D Modi - Endocrinologist specializing in thyroid disorders.</p>
+                            <p>Dr. Mithal - Expert in thyroid disease management.</p>
+                            <p>Dr. Sushil Garber - Specialist in thyroid cancer and disorders.</p>
+                        </div>
+                    </div>
+                    <a href="/diet">
+                        <button>DIET PLAN</button>
+                    </a>
+                </center>
+            {% endif %}
+        </div>
+
+        <!-- Go Back Button -->
+        <a href="/predict_page">
+            <button>Go Back</button>
+        </a>
+    </div>
+</body>
+</html>

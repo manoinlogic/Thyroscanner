@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Thyroid  detection</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">  
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+
+    <!-- Template Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    
+
+
+   <!-- Navbar Start -->
+<div class="container-fluid sticky-top bg-white shadow-sm">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
+            <a href="index.html" class="navbar-brand">
+                <h1 class="m-0 text-uppercase text-primary"><i class="fa fa-clinic-medical me-2"></i>Thyroid prediction</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="#" class="nav-item nav-link active">Home</a>
+                    <a href="{{ url_for('login') }}" class="nav-item nav-link">Login</a>
+                    <a href="{{ url_for('register') }}" class="nav-item nav-link">Register</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
+<!-- Navbar End -->
+
+<!-- Hero Start -->
+<div class="container-fluid bg-primary py-5 mb-5 hero-header">
+    <div class="container py-5">
+        <div class="row justify-content-start">
+            <div class="col-lg-8 text-center text-lg-start">
+                <h1 class="display-1 text-white mb-md-4">Thyroid prediction Detection Using Deep Learning</h1>
+                <div class="pt-2">
+                    <a href="{{ url_for('login') }}" class="btn btn-light rounded-pill py-md-3 px-md-5 mx-2">Login</a>
+                    <a href="{{ url_for('register') }}" class="btn btn-outline-light rounded-pill py-md-3 px-md-5 mx-2">Register</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Hero End -->
+
+<!-- About Start -->
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="row gx-5">
+            <div class="col-lg-5 mb-5 mb-lg-0" style="min-height: 500px;">
+                <div class="position-relative h-100">
+                    <img class="position-absolute w-100 h-100 rounded" src="{{ url_for('static', filename='img/about.jpeg') }}" style="object-fit: cover;">
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="mb-4">
+                    <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Thyroid prdiction</h5>
+                    <h1 class="display-4">Introduction</h1>
+                </div>
+                <p>Thyroid prdiction is a serious condition that begins in the ovaries and can spread to other parts of the body if not detected early. It is one of the most lethal gynecological cancers due to its often late diagnosis. Early detection and intervention significantly improve survival rates.</p>
+                <p>Regular screenings, awareness of symptoms, and advancements in AI-based detection methods can enhance early diagnosis and treatment outcomes.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+<!-- Services Start -->
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+            <h1 class="display-4">Understanding Thyroid prdiction</h1>
+        </div>
+        <div class="row g-5">
+            <div class="col-lg-4 col-md-6">
+                <div class="service-item bg-light rounded text-center p-4">
+                    <h4 class="mb-3">What is Thyroid prdiction?</h4>
+                    <p>Thyroid prdiction arises from abnormal cell growth in the ovaries. It can develop in different types of cells and varies in severity.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="service-item bg-light rounded text-center p-4">
+                    <h4 class="mb-3">Symptoms</h4>
+                    <p>Common symptoms include bloating, abdominal pain, difficulty eating, and frequent urination. Awareness can aid early detection.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="service-item bg-light rounded text-center p-4">
+                    <h4 class="mb-3">Causes & Risk Factors</h4>
+                    <p>Factors like genetic mutations (BRCA1/BRCA2), age, family history, and hormonal changes can increase the risk of Thyroid prdiction.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="service-item bg-light rounded text-center p-4">
+                    <h4 class="mb-3">Diagnosis</h4>
+                    <p>Thyroid prdiction detection includes pelvic exams, ultrasound, blood tests (CA-125), and advanced imaging techniques.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="service-item bg-light rounded text-center p-4">
+                    <h4 class="mb-3">Treatment Options</h4>
+                    <p>Treatment includes surgery, chemotherapy, targeted therapy, and immunotherapy. Personalized treatment plans improve outcomes.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="service-item bg-light rounded text-center p-4">
+                    <h4 class="mb-3">Prevention & Awareness</h4>
+                    <p>Regular screenings, lifestyle changes, and genetic counseling can help prevent or manage Thyroid prdiction risks effectively.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Services End -->
+
+<!-- Footer Start -->
+<div class="container-fluid bg-dark text-light border-top border-secondary py-4">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-md-6 text-center text-md-start">
+                <p class="mb-md-0">&copy; <a class="text-primary" href="#">Thyroid prdiction Detection</a>. All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
