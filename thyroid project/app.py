@@ -4,6 +4,7 @@ import tensorflow as tf
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import img_to_array, load_img
 from flask import Flask, request, render_template
+from werkzeug.utils import secure_filename
 import contextlib
 import joblib
 import re
@@ -167,7 +168,10 @@ def predict():
         return render_template("index.html", error="No selected file")
 
     # Save uploaded file
-    file_path = os.path.join(app.config["UPLOAD_FOLDER"], file.filename)
+    sanitized_filename = secure_filename(file.filename)
+    file_path = os.path.normpath(os.path.join(app.config["UPLOAD_FOLDER"], sanitized_filename))
+    if not file_path.startswith(app.config["UPLOAD_FOLDER"]):
+        return render_template("index.html", error="Invalid file path")
     file.save(file_path)
 
     # Get prediction
