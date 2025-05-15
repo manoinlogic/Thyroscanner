@@ -176,4 +176,6 @@ def predict():
     return render_template("result.html", image=file.filename, predicted_class=predicted_label, confidence=confidence)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    # Use environment variable to determine if debug mode should be enabled
+    environment = os.getenv("FLASK_ENV", "production")
+    app.run(debug=(environment == "development"))
